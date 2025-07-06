@@ -3,7 +3,7 @@ package com.study.pokeapp.pokemon.di
 import android.content.Context
 import androidx.room.Room
 import com.study.pokeapp.pokemon.data.local.AppDatabase
-import com.study.pokeapp.pokemon.data.local.model.PokemonConverters
+import com.study.pokeapp.pokemon.data.PokemonConverters
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

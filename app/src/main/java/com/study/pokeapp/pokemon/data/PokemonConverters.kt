@@ -1,4 +1,4 @@
-package com.study.pokeapp.pokemon.data.local.model
+package com.study.pokeapp.pokemon.data
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter

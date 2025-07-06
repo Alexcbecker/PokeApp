@@ -1,7 +1,7 @@
 package com.study.pokeapp.pokemon.di
 
 import com.squareup.moshi.Moshi
-import com.study.pokeapp.pokemon.data.local.model.PokemonConverters
+import com.study.pokeapp.pokemon.data.PokemonConverters
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
