@@ -9,9 +9,4 @@ data class Sprites(
     val frontFemale: String? = null,
     val frontShiny: String? = null,
     val frontShinyFemale: String? = null,
-) {
-    companion object {
-        val EMPTY = Sprites()
-    }
-}
-
+)
