@@ -26,13 +26,12 @@ interface PokemonModule {
         @Singleton
         fun provideDatabase(
             @ApplicationContext applicationContext: Context,
-            pokemonConverters: PokemonConverters
+            converters: PokemonConverters
         ) = Room.databaseBuilder(
             applicationContext,
             AppDatabase::class.java,
             AppDatabase.DB_NAME
         )
-            .addTypeConverter(pokemonConverters)
             .build()
     }
 }

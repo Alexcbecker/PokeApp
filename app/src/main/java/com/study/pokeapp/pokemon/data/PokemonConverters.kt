@@ -6,9 +6,10 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import com.study.pokeapp.pokemon.data.remote.model.SpritesResponse
 import com.study.pokeapp.pokemon.data.remote.model.TypeSlotResponse
+import javax.inject.Inject
 
 @ProvidedTypeConverter
-class PokemonConverters(moshi: Moshi) {
+class PokemonConverters @Inject constructor(moshi: Moshi) {
 
     private val typeListAdapter = moshi.adapter<List<TypeSlotResponse>>(
         Types.newParameterizedType(List::class.java, TypeSlotResponse::class.java)
