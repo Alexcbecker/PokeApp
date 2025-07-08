@@ -20,14 +20,20 @@ import com.study.pokeapp.pokemon.domain.model.TypeSlot
 import kotlinx.coroutines.flow.flowOf
 
 @Composable
-fun PokemonListComponent(pokemons: LazyPagingItems<Pokemon>) {
+fun PokemonListComponent(
+    pokemons: LazyPagingItems<Pokemon>,
+    onPokemonClick: (Pokemon) -> Unit
+) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(
             pokemons.itemCount,
             key = pokemons.itemKey()
         ) { index ->
             pokemons[index]?.let { pokemon ->
-                PokemonRowComponent(pokemon = pokemon)
+                PokemonRowComponent(
+                    pokemon = pokemon,
+                    onClick = { onPokemonClick(pokemon) }
+                )
                 if (index < pokemons.itemSnapshotList.lastIndex) {
                     HorizontalDivider(
                         modifier = Modifier.padding(16.dp, 0.dp, 0.dp, 0.dp),
@@ -75,7 +81,8 @@ fun PokemonListComponentPreview() {
                     )
                 )
             )
-        ).collectAsLazyPagingItems()
+        ).collectAsLazyPagingItems(),
+        onPokemonClick = {}
     )
 }
 

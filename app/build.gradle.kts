@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.hilt.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiler)
@@ -80,6 +81,8 @@ dependencies {
     implementation(libs.ui.graphics)
     implementation(libs.room.ktx)
     implementation(libs.room.paging)
+    implementation(libs.navigation.compose)
+    implementation(libs.hilt.navigation.compose)
     ksp(libs.room.compiler)
 
     implementation(platform(libs.compose.bom))

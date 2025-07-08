@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import com.study.pokeapp.core.theme.PokeAppTheme
+import com.study.pokeapp.pokemon.ui.navigation.AppNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -12,7 +13,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PokeAppTheme {
-                PokemonListScreen()
+                AppNavGraph()
             }
         }
     }

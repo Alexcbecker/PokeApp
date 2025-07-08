@@ -1,5 +1,6 @@
 package com.study.pokeapp.pokemon.ui.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,17 +25,22 @@ import com.study.pokeapp.pokemon.domain.model.Type
 import com.study.pokeapp.pokemon.domain.model.TypeSlot
 
 @Composable
-fun PokemonRowComponent(pokemon: Pokemon) {
+fun PokemonRowComponent(
+    pokemon: Pokemon,
+    onClick: () -> Unit
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp)
+            .clickable { onClick() }
     ) {
         AsyncImage(
             model = pokemon.sprites.frontDefault,
             contentDescription = null,
             contentScale = ContentScale.Crop,
             placeholder = painterResource(R.drawable.ic_pokeball),
+            fallback = painterResource(R.drawable.ic_pokeball),
             modifier = Modifier
                 .height(40.dp)
                 .width(40.dp)
@@ -67,6 +73,7 @@ fun PokemonRowComponentPreview() {
                 )
             ),
             sprites = Sprites()
-        )
+        ),
+        onClick = {}
     )
 }

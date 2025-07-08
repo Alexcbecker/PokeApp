@@ -1,5 +1,9 @@
 package com.study.pokeapp.pokemon.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Sprites(
     val backDefault: String? = null,
     val backFemale: String? = null,
@@ -9,4 +13,4 @@ data class Sprites(
     val frontFemale: String? = null,
     val frontShiny: String? = null,
     val frontShinyFemale: String? = null,
-)
+) : Parcelable
