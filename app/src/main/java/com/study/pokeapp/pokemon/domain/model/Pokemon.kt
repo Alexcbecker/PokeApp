@@ -8,5 +8,6 @@ data class Pokemon(
     val id: Int,
     val name: String,
     val types: List<TypeSlot>,
-    val sprites: Sprites
+    val sprites: Sprites,
+    var favorite: Boolean = false
 ) : Parcelable

@@ -9,5 +9,6 @@ data class PokemonEntity(
     val id: Int,
     val name: String,
     val typesJson: String,
-    val spritesJson: String
+    val spritesJson: String,
+    var favorite: Boolean = false
 )

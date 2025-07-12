@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.study.pokeapp.pokemon.data.local.AppDatabase
 import com.study.pokeapp.pokemon.data.PokemonConverters
+import com.study.pokeapp.pokemon.data.local.MIGRATION_1_2
 import com.study.pokeapp.pokemon.data.remote.PokemonApiService
 import dagger.Module
 import dagger.Provides
@@ -32,6 +33,7 @@ interface PokemonModule {
             AppDatabase::class.java,
             AppDatabase.DB_NAME
         )
+            .addMigrations(MIGRATION_1_2)
             .build()
     }
 }

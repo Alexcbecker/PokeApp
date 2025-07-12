@@ -22,7 +22,8 @@ import kotlinx.coroutines.flow.flowOf
 @Composable
 fun PokemonListComponent(
     pokemons: LazyPagingItems<Pokemon>,
-    onPokemonClick: (Pokemon) -> Unit
+    onPokemonClick: (Pokemon) -> Unit,
+    onToggleFavorite: (Pokemon) -> Unit
 ) {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(
@@ -32,7 +33,10 @@ fun PokemonListComponent(
             pokemons[index]?.let { pokemon ->
                 PokemonRowComponent(
                     pokemon = pokemon,
-                    onClick = { onPokemonClick(pokemon) }
+                    onClick = { onPokemonClick(pokemon) },
+                    onToggleFavorite = {
+                        onToggleFavorite(pokemon)
+                    }
                 )
                 if (index < pokemons.itemSnapshotList.lastIndex) {
                     HorizontalDivider(
@@ -82,7 +86,8 @@ fun PokemonListComponentPreview() {
                 )
             )
         ).collectAsLazyPagingItems(),
-        onPokemonClick = {}
+        onPokemonClick = {},
+        onToggleFavorite = {}
     )
 }
 

@@ -25,4 +25,9 @@ class PokemonRepository @Inject constructor(
     ).flow.map { pagingData ->
         pagingData.map { it.toDomain(moshi) }
     }
+
+    suspend fun toggleFavorite(pokemon: Pokemon) {
+        val updatedEntity = pokemon.copy(favorite = !pokemon.favorite).toEntity(moshi)
+        database.pokemonDao().update(updatedEntity)
+    }
 }
